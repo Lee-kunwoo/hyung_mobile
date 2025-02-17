@@ -1,0 +1,131 @@
+/* modal */
+/* 모달 박스 및 아코디언 메뉴 */
+.menuModal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-overlay);
+    z-index: 1000;
+  }
+  .menuModal.on {
+    display: flex;
+  }
+  .modal {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  .modal > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary);
+    color: #fff;
+    padding: 15px;
+    font-size: 1.2rem;
+  }
+  .xi-close {
+    cursor: pointer;
+    transition: transform var(--transition);
+  }
+  .xi-close:hover {
+    transform: rotate(90deg);
+  }
+  .modalMenu {
+    list-style: none;
+    padding: 15px;
+  }
+  .modalMenu > li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  .modalMenu > li > a {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary);
+    text-decoration: none;
+    display: block;
+    position: relative;
+    padding-right: 25px;
+  }
+  .modalMenu > li > a::after {
+    content: "▼";
+    position: absolute;
+    right: 0;
+    transition: transform var(--transition);
+  }
+  .modalMenu li.active > a::after {
+    transform: rotate(-180deg);
+  }
+  .modalMenuList {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 10px;
+    display: none;
+  }
+  .modalMenu li.active > .modalMenuList {
+    display: block;
+  }
+  .modalMenuList > li {
+    padding: 8px 0;
+    font-size: 1rem;
+    color: var(--secondary);
+  }
+  .modalMenuList > li:hover {
+    color: var(--accent);
+    cursor: pointer;
+  }
+/* -----------------------------------
+   반응형 미디어 쿼리 (Mobile)
+-------------------------------------*/
+/* Tablet (max-width: 1024px) */
+@media only screen and (max-width: 1024px) {
+    header {
+        padding: 0 20px;
+    }
+    .logo {
+        width: 20%;
+        margin-bottom: 20PX;
+    }
+    .menu {
+        width: 75%;
+        font-size: 0.9rem;
+    }
+    .menu > li {
+        padding: 0 20px;
+    }
+    .icon {
+        width: 20%;
+    }  
+}         
+/* Mobile (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+  body {
+    max-width: 100vw !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+      header {
+      flex-direction: column;
+      height: auto;
+  }
+
+  .icon {
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 10px;
+      gap: 50px;
+  }
+  .lang {
+      top: 50px;
+  }
+}
